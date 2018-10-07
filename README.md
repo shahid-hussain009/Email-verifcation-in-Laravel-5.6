@@ -1,4 +1,11 @@
 # Email-verifcation-in-Laravel-5.6
+# First Trun on less secure app by following below link
+```php
+https://myaccount.google.com/security#connectedapps
+
+https://accounts.google.com/UnlockCaptcha 
+
+```
 # Route
 ```php
 Route::get('verify/{email}/{token}', 'Auth\RegisterController@verifyUser')->name('verify');
