@@ -1,6 +1,12 @@
 # Email-verifcation-in-Laravel-5.6
-
+# Route
 ```php
+Route::get('verify/{email}/{token}', 'Auth\RegisterController@verifyUser')->name('verify');
+```
+# Register Contrller 
+```php
+use Mail;
+use App\Mail\verifyUserByEmail;
 protected function create(array $data)
     {
         $user = User::create([
@@ -42,4 +48,39 @@ protected function create(array $data)
         }
     }
 
+```
+# Login Controller 
+```php
+protected function authenticated(Request $request, $user)
+    {
+        $user = User::find(Auth::id());
+        if($user->status == 0){
+            Auth::logout();
+            return redirect('login')->with('err_message', 'Activate Your Account First');
+        }
+    }
+
+```
+# Mail 
+```php
+  public $user;
+    public function __construct($user)
+    {
+        $this->user = $user;
+    }
+
+    /**
+     * Build the message.
+     *
+     * @return $this
+     */
+    public function build()
+    {
+        return $this->from('no-reply@admin.com')->from('Admin of ItTeach')->view('auth.verifyUser');
+    }
+
+```
+# Mail view
+```php
+<a href='{{url("verify/$user->email/$user->verifyToken")}}'>Click here</a> To verify Your account
 ```
