@@ -6,6 +6,17 @@ https://myaccount.google.com/security#connectedapps
 https://accounts.google.com/UnlockCaptcha 
 
 ```
+# .env set up
+```php
+
+MAIL_DRIVER=smtp
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=587
+MAIL_USERNAME=test_hello@gmail.com
+MAIL_PASSWORD=yourpassword
+MAIL_ENCRYPTION=tls
+
+```
 # Route
 ```php
 Route::get('verify/{email}/{token}', 'Auth\RegisterController@verifyUser')->name('verify');
