@@ -21,6 +21,8 @@ MAIL_ENCRYPTION=tls
 ```php
 Route::get('verify/{email}/{token}', 'Auth\RegisterController@verifyUser')->name('verify');
 ```
+# Make Mail
+### php artisan make:mail verifyUserByEmail
 # Register Contrller 
 ```php
 use Mail;
