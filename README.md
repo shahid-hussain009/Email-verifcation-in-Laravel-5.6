@@ -1,4 +1,4 @@
-# Laravel-Relationship, Email-verifcation, Laravel-Queue
+# Laravel-Relationship, Email-verifcation,Queue
 
 # Controller 
 ```php
